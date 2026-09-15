@@ -5,9 +5,15 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-bravo-purple: #b062ff;
+  --color-bravo-dark: #200d28;
+  --color-bravo-light: #f5e0ff;
+  --color-bravo-accent: #db98f5;
+  --color-bravo-blue: #302882;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-roboto);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
