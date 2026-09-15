@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
@@ -122,7 +123,7 @@ export default function CommuteCalculator() {
           </div>
           <div className="space-y-2">
             <Label>Preferred maximum</Label>
-            <Select value={preferredLimit} onValueChange={setPreferredLimit}>
+            <Select value={preferredLimit} onValueChange={(val) => val && setPreferredLimit(val)}>
               <SelectTrigger><SelectValue /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="20">20 minutes each way</SelectItem>
@@ -224,9 +225,15 @@ export default function CommuteCalculator() {
                     
                     <CardFooter className="bg-zinc-50 border-t p-4">
                       {loc.actions.map(action => (
-                        <Button key={action.label} asChild variant={isPending ? "outline" : "default"} className="w-full">
-                          <a href={action.url} target="_blank" rel="noopener noreferrer">{action.label}</a>
-                        </Button>
+                        <a 
+                          key={action.label} 
+                          href={action.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className={cn(buttonVariants({ variant: isPending ? "outline" : "default" }), "w-full")}
+                        >
+                          {action.label}
+                        </a>
                       ))}
                     </CardFooter>
                   </Card>
@@ -240,6 +247,22 @@ export default function CommuteCalculator() {
           </div>
         )}
       </main>
+
+      <footer className="w-full py-12 px-6 border-t border-zinc-200 bg-white mt-auto">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+          <div>
+            <div className="text-bravo-dark font-bold text-lg mb-4">Bravo Rhythmic</div>
+            <div className="text-sm text-zinc-500">
+              © {new Date().getFullYear()} Bravo Rhythmic. All rights reserved.
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-4 text-sm font-medium text-zinc-600">
+            <Link href="/" className="hover:text-bravo-purple transition-colors">Home</Link>
+            <Link href="/articles/bravo-rhythmic-gymnastics-bay-area-guide" className="hover:text-bravo-purple transition-colors">Rhythmic Gymnastics Club Guide</Link>
+            <Link href="/commute-calculator" className="hover:text-bravo-purple transition-colors">Commute Calculator</Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
