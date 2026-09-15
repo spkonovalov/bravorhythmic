@@ -13,7 +13,8 @@ const articles = [
     date: "September 14, 2026",
     author: "Bravo Rhythmic Team",
     tags: ["Guides", "Local"],
-    readTime: "8 min read"
+    readTime: "8 min read",
+    isPublished: true
   },
   {
     id: "how-to-choose-first-leotard",
@@ -22,7 +23,8 @@ const articles = [
     date: "September 10, 2026",
     author: "Elena K.",
     tags: ["Lifehacks", "Equipment"],
-    readTime: "5 min read"
+    readTime: "5 min read",
+    isPublished: false
   },
   {
     id: "balancing-school-and-competitive-sports",
@@ -31,7 +33,8 @@ const articles = [
     date: "September 5, 2026",
     author: "Maria I.",
     tags: ["Opinions", "Useful Info"],
-    readTime: "6 min read"
+    readTime: "6 min read",
+    isPublished: false
   },
   {
     id: "stretching-safely-at-home",
@@ -40,7 +43,8 @@ const articles = [
     date: "August 28, 2026",
     author: "Bravo Rhythmic Team",
     tags: ["Guides", "Useful Info"],
-    readTime: "7 min read"
+    readTime: "7 min read",
+    isPublished: false
   },
   {
     id: "understanding-rg-apparatus",
@@ -49,7 +53,8 @@ const articles = [
     date: "August 20, 2026",
     author: "Bravo Rhythmic Team",
     tags: ["Useful Info"],
-    readTime: "4 min read"
+    readTime: "4 min read",
+    isPublished: false
   },
   {
     id: "commute-calculator",
@@ -59,7 +64,8 @@ const articles = [
     author: "Product Team",
     tags: ["Tools", "Interactive"],
     readTime: "Tool",
-    isTool: true
+    isTool: true,
+    isPublished: true
   }
 ];
 
@@ -122,11 +128,15 @@ export default function Home() {
                     </Badge>
                   ))}
                 </div>
-                <CardTitle className="text-2xl leading-tight group-hover:text-bravo-purple transition-colors">
-                  <Link href={article.isTool ? `/${article.id}` : `/articles/${article.id}`} className="focus:outline-none">
-                    <span className="absolute inset-0" aria-hidden="true" />
-                    {article.title}
-                  </Link>
+                <CardTitle className={cn("text-2xl leading-tight transition-colors", article.isPublished ? "group-hover:text-bravo-purple" : "text-zinc-400")}>
+                  {article.isPublished ? (
+                    <Link href={article.isTool ? `/${article.id}` : `/articles/${article.id}`} className="focus:outline-none">
+                      <span className="absolute inset-0" aria-hidden="true" />
+                      {article.title}
+                    </Link>
+                  ) : (
+                    <span>{article.title}</span>
+                  )}
                 </CardTitle>
                 <div className="flex items-center gap-2 text-sm text-zinc-500 mt-2">
                   <span>{article.date}</span>
@@ -146,12 +156,18 @@ export default function Home() {
                   </div>
                   <span className="text-sm font-medium">{article.author}</span>
                 </div>
-                <Link 
-                  href={article.isTool ? `/${article.id}` : `/articles/${article.id}`} 
-                  className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-bravo-purple hover:text-bravo-purple hover:bg-bravo-purple/10 font-semibold z-10 relative")}
-                >
-                  {article.isTool ? "Try Tool →" : "Read →"}
-                </Link>
+                {article.isPublished ? (
+                  <Link 
+                    href={article.isTool ? `/${article.id}` : `/articles/${article.id}`} 
+                    className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-bravo-purple hover:text-bravo-purple hover:bg-bravo-purple/10 font-semibold z-10 relative")}
+                  >
+                    {article.isTool ? "Try Tool →" : "Read →"}
+                  </Link>
+                ) : (
+                  <span className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-zinc-400 cursor-not-allowed opacity-50")}>
+                    Coming soon
+                  </span>
+                )}
               </CardFooter>
             </Card>
           ))}
