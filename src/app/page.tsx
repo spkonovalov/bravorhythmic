@@ -7,8 +7,8 @@ import Image from "next/image";
 const articles = [
   {
     id: "bravo-rhythmic-gymnastics-bay-area-guide",
-    title: "The Ultimate Guide to Rhythmic Gymnastics in the Bay Area",
-    excerpt: "Discover the best programs, competitive levels, and what to expect when enrolling your child in rhythmic gymnastics across Silicon Valley and the Bay Area.",
+    title: "How to Choose a Rhythmic Gymnastics Club in the Bay Area",
+    excerpt: "Finding the right rhythmic gymnastics class means finding a place where your child wants to learn—and a routine your family can maintain.",
     date: "September 14, 2026",
     author: "Bravo Rhythmic Team",
     tags: ["Guides", "Local"],
@@ -112,11 +112,11 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article) => (
-            <Card key={article.id} className="flex flex-col overflow-hidden border-zinc-200 hover:shadow-md transition-shadow group bg-white">
+            <Card key={article.id} className="relative flex flex-col overflow-hidden border-zinc-200 hover:shadow-md transition-shadow group bg-white">
               <CardHeader className="pb-4">
                 <div className="flex gap-2 mb-3 flex-wrap">
                   {article.tags.map(tag => (
-                    <Badge key={tag} className="bg-bravo-purple/10 text-bravo-purple hover:bg-bravo-purple/20 border-none">
+                    <Badge key={tag} className="bg-bravo-purple/10 text-bravo-purple hover:bg-bravo-purple/20 border-none relative z-10">
                       {tag}
                     </Badge>
                   ))}
