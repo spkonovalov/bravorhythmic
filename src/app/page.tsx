@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -15,25 +16,27 @@ export default function Home() {
             Blog & Learn
           </span>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            Добро пожаловать в базу знаний
+            Welcome to the Knowledge Base
           </h2>
           <p className="text-lg leading-relaxed text-bravo-dark/70 max-w-2xl">
-            Этот раздел находится в разработке. Здесь будут публиковаться полезные материалы, статьи и руководства от клуба Bravo Rhythmic.
+            This section is under development. Here we will publish useful materials, articles, and guides from Bravo Rhythmic club.
           </p>
           
           <div className="flex gap-4 mt-8">
-            <Button className="bg-bravo-purple hover:bg-bravo-purple/90 text-white rounded-full px-8 h-12 text-base">
-              Читать статьи
-            </Button>
+            <Link href="/articles">
+              <Button className="bg-bravo-purple hover:bg-bravo-purple/90 text-white rounded-full px-8 h-12 text-base">
+                Read Articles
+              </Button>
+            </Link>
             <Button variant="outline" className="border-bravo-purple text-bravo-purple hover:bg-bravo-purple/10 rounded-full px-8 h-12 text-base">
-              На основной сайт
+              Back to Main Site
             </Button>
           </div>
         </div>
       </main>
       
       <footer className="w-full py-8 text-center text-sm text-bravo-dark/50 border-t border-bravo-purple/10 bg-white mt-auto">
-        © {new Date().getFullYear()} Bravo Rhythmic. Все права защищены.
+        © {new Date().getFullYear()} Bravo Rhythmic. All rights reserved.
       </footer>
     </div>
   );
