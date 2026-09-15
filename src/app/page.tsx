@@ -1,8 +1,9 @@
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const articles = [
   {
@@ -145,11 +146,12 @@ export default function Home() {
                   </div>
                   <span className="text-sm font-medium">{article.author}</span>
                 </div>
-                <Button asChild variant="ghost" size="sm" className="text-bravo-purple hover:text-bravo-purple hover:bg-bravo-purple/10 font-semibold z-10 relative">
-                  <Link href={article.isTool ? `/${article.id}` : `/articles/${article.id}`}>
-                    {article.isTool ? "Try Tool →" : "Read →"}
-                  </Link>
-                </Button>
+                <Link 
+                  href={article.isTool ? `/${article.id}` : `/articles/${article.id}`} 
+                  className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-bravo-purple hover:text-bravo-purple hover:bg-bravo-purple/10 font-semibold z-10 relative")}
+                >
+                  {article.isTool ? "Try Tool →" : "Read →"}
+                </Link>
               </CardFooter>
             </Card>
           ))}
