@@ -33,11 +33,22 @@ export async function POST(request: Request) {
     const redwoodReturnMinutes = Math.max(1, Math.ceil(returnSeconds / 60));
     const redwoodTotal = redwoodOutboundMinutes + redwoodReturnMinutes;
 
+    const mockCities: Record<string, string> = {
+      "94025": "Menlo Park",
+      "94040": "Mountain View",
+      "94041": "Mountain View",
+      "94063": "Redwood City",
+      "94087": "Sunnyvale",
+      "95014": "Cupertino",
+      "95050": "Santa Clara",
+    };
+    const locality = mockCities[zip] || "CA";
+
     const response = {
       requestId: crypto.randomUUID(),
       computedAt: new Date().toISOString(),
       input: { zip, date, outboundLocalTime, returnLocalTime, timeZone: "America/Los_Angeles" },
-      origin: `ZIP ${zip} · Menlo Park`, // Mock locality
+      origin: `ZIP ${zip} · ${locality}`,
       locations: [
         {
           id: 'redwood_city',
