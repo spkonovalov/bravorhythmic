@@ -48,10 +48,18 @@ export default function CommuteCalculator() {
 
   const handleCompare = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (zip.trim().length !== 5) {
+    
+    let normalizedZip = zip.trim();
+    if (/^\d{5}-\d{4}$/.test(normalizedZip)) {
+      normalizedZip = normalizedZip.slice(0, 5);
+      setZip(normalizedZip);
+    }
+    
+    if (!/^\d{5}$/.test(normalizedZip)) {
       setError("Enter a valid 5-digit US ZIP code.");
       return;
     }
+    
     setError("");
     setLoading(true);
     setResult(null);
@@ -60,7 +68,7 @@ export default function CommuteCalculator() {
       const res = await fetch("/api/commute/compare", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ zip: zip.trim(), date, outboundLocalTime, returnLocalTime }),
+        body: JSON.stringify({ zip: normalizedZip, date, outboundLocalTime, returnLocalTime }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -91,7 +99,7 @@ export default function CommuteCalculator() {
         <form onSubmit={handleCompare} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12 bg-white p-6 rounded-2xl shadow-sm border border-zinc-100">
           <div className="space-y-2">
             <Label htmlFor="zip">Your ZIP code</Label>
-            <Input id="zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="94025" inputMode="numeric" maxLength={5} />
+            <Input id="zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="94025" inputMode="numeric" maxLength={10} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="date">Travel date</Label>
