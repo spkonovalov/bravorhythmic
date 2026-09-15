@@ -96,14 +96,10 @@ export default function CommuteCalculator() {
           Enter your ZIP code to estimate the drive to Bravo Redwood City and our Santa Clara location. Compare your trip to class with the evening drive back.
         </p>
 
-        <form onSubmit={handleCompare} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12 bg-white p-6 rounded-2xl shadow-sm border border-zinc-100">
+        <form onSubmit={handleCompare} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 bg-white p-6 rounded-2xl shadow-sm border border-zinc-100">
           <div className="space-y-2">
             <Label htmlFor="zip">Your ZIP code</Label>
             <Input id="zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="94025" inputMode="numeric" maxLength={10} />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="date">Travel date</Label>
-            <Input id="date" type="date" value={date} onChange={(e) => setDate(e.target.value)} min={new Date().toISOString().split("T")[0]} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="outbound">Leave for class</Label>
@@ -125,7 +121,7 @@ export default function CommuteCalculator() {
               </SelectContent>
             </Select>
           </div>
-          <div className="lg:col-span-5 pt-2">
+          <div className="lg:col-span-4 pt-2">
             <Button type="submit" disabled={loading} className="w-full md:w-auto bg-bravo-purple hover:bg-bravo-purple/90 text-white rounded-full px-8">
               {loading ? "Calculating drive times..." : "Compare drive times"}
             </Button>
@@ -147,7 +143,7 @@ export default function CommuteCalculator() {
         {result && (
           <div className="space-y-6">
             <div className="text-sm text-zinc-600 font-medium">
-              Starting area: <span className="font-semibold text-black">{result.origin}</span> · {date} · Estimates start from a representative point in your ZIP area, not your exact home or school.
+              Starting area: <span className="font-semibold text-black">{result.origin}</span> · Estimates start from a representative point in your ZIP area, not your exact home or school.
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
