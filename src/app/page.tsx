@@ -145,8 +145,10 @@ export default function Home() {
                   </div>
                   <span className="text-sm font-medium">{article.author}</span>
                 </div>
-                <Button variant="ghost" size="sm" className="text-bravo-purple hover:text-bravo-purple hover:bg-bravo-purple/10 font-semibold z-10 relative">
-                  {article.isTool ? "Try Tool →" : "Read →"}
+                <Button asChild variant="ghost" size="sm" className="text-bravo-purple hover:text-bravo-purple hover:bg-bravo-purple/10 font-semibold z-10 relative">
+                  <Link href={article.isTool ? `/${article.id}` : `/articles/${article.id}`}>
+                    {article.isTool ? "Try Tool →" : "Read →"}
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>
