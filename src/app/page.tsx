@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import Image from "next/image";
 
 const articles = [
   {
@@ -67,8 +68,11 @@ export default function Home() {
       {/* Header */}
       <header className="w-full py-6 px-6 md:px-12 border-b border-bravo-purple/20 bg-white sticky top-0 z-10">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold tracking-tight text-bravo-purple">
-            Bravo Rhythmic <span className="text-zinc-400 font-normal">Learn</span>
+          <Link href="/" className="flex items-center gap-3">
+            <Image src="/Bravo_1.svg" alt="Bravo Rhythmic Gymnastics Logo" width={32} height={32} className="h-8 w-auto" />
+            <span className="text-xl md:text-2xl font-bold tracking-tight text-bravo-purple">
+              Bravo Rhythmic Gymnastics
+            </span>
           </Link>
           <nav className="hidden md:flex gap-6 text-sm font-medium text-zinc-600">
             <Link href="/" className="hover:text-bravo-purple transition-colors">All Articles</Link>

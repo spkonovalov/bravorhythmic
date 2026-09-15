@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -86,8 +88,17 @@ export default function CommuteCalculator() {
 
   return (
     <div className="flex flex-col min-h-screen bg-zinc-50 text-bravo-dark font-sans">
-      <header className="w-full py-6 px-8 border-b bg-white border-bravo-purple/20">
-        <h1 className="text-2xl font-bold tracking-tight text-bravo-purple">Bravo Rhythmic</h1>
+      <header className="w-full py-6 px-6 md:px-12 border-b bg-white border-bravo-purple/20">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-3">
+            <Image src="/Bravo_1.svg" alt="Bravo Rhythmic Gymnastics Logo" width={32} height={32} className="h-8 w-auto" />
+            <span className="text-xl md:text-2xl font-bold tracking-tight text-bravo-purple">Bravo Rhythmic Gymnastics</span>
+          </Link>
+          <nav className="hidden md:flex gap-6 text-sm font-medium text-zinc-600">
+            <Link href="/" className="hover:text-bravo-purple transition-colors">All Articles</Link>
+            <Link href="/commute-calculator" className="text-bravo-purple font-semibold transition-colors">Commute Calculator</Link>
+          </nav>
+        </div>
       </header>
 
       <main className="flex-1 w-full max-w-5xl mx-auto py-12 px-6">
