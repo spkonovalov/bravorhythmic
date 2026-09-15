@@ -14,8 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bravo Rhythmic - Blog & Learn",
-  description: "Educational materials and blog for Bravo Rhythmic",
+  metadataBase: new URL("https://learn.bravorhythmic.com"),
+  title: {
+    template: "%s | Bravo Rhythmic",
+    default: "Bravo Rhythmic - Blog & Learn",
+  },
+  description: "Educational materials, articles, and guides for Bravo Rhythmic gymnastics club.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

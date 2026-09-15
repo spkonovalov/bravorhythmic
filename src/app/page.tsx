@@ -4,6 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const articles = [
   {
@@ -176,10 +183,17 @@ export default function Home() {
       
       {/* Footer */}
       <footer className="w-full py-12 px-6 border-t border-zinc-200 bg-white mt-auto">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-bravo-dark font-bold text-lg">Bravo Rhythmic</div>
-          <div className="text-sm text-zinc-500">
-            © {new Date().getFullYear()} Bravo Rhythmic. All rights reserved.
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+          <div>
+            <div className="text-bravo-dark font-bold text-lg mb-4">Bravo Rhythmic</div>
+            <div className="text-sm text-zinc-500">
+              © {new Date().getFullYear()} Bravo Rhythmic. All rights reserved.
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-4 text-sm font-medium text-zinc-600">
+            <Link href="/" className="hover:text-bravo-purple transition-colors">Home</Link>
+            <Link href="/articles/bravo-rhythmic-gymnastics-bay-area-guide" className="hover:text-bravo-purple transition-colors">Rhythmic Gymnastics Club Guide</Link>
+            <Link href="/commute-calculator" className="hover:text-bravo-purple transition-colors">Commute Calculator</Link>
           </div>
         </div>
       </footer>
