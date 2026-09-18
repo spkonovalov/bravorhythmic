@@ -12,17 +12,17 @@ export const metadata = {
 export default function ArticlePage() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans text-bravo-dark">
-      <header className="w-full py-6 px-6 md:px-12 border-b border-bravo-purple/20 bg-white sticky top-0 z-10">
+      <header className="w-full py-6 px-6 md:px-12 bg-bravo-dark sticky top-0 z-10 shadow-md">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/Bravo_1.svg" alt="Bravo Rhythmic Gymnastics Logo" width={32} height={32} className="h-8 w-auto" />
-            <span className="text-xl md:text-2xl font-bold tracking-tight text-bravo-purple">
+          <Link href="/" className="flex items-center gap-3 focus:outline-none">
+            <Image src="/Bravo_1.svg" alt="Bravo Rhythmic Gymnastics Logo" width={32} height={32} className="h-8 w-auto brightness-0 invert" />
+            <span className="text-xl md:text-2xl font-bold tracking-tight text-white">
               Bravo Rhythmic Gymnastics
             </span>
           </Link>
-          <nav className="hidden md:flex gap-6 text-sm font-medium text-zinc-600">
-            <Link href="/" className="hover:text-bravo-purple transition-colors">All Articles</Link>
-            <Link href="/commute-calculator" className="hover:text-bravo-purple transition-colors">Commute Calculator</Link>
+          <nav className="hidden md:flex gap-6 text-[14px] font-normal text-white uppercase tracking-[1px]">
+            <Link href="/" className="hover:text-bravo-accent transition-colors">All Articles</Link>
+            <Link href="/commute-calculator" className="hover:text-bravo-accent transition-colors">Commute Calculator</Link>
           </nav>
         </div>
       </header>

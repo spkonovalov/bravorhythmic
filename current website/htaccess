@@ -1,0 +1,97 @@
+ErrorDocument 403 /404.html
+ErrorDocument 404 /404.html
+
+DirectoryIndex page30288249.html
+
+RewriteEngine On
+
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} /robots.txt
+RewriteCond "%{DOCUMENT_ROOT}/robots_%{HTTP_HOST}.txt" -f
+RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
+RewriteRule ^home$ page30288249.html [NC]
+RewriteRule ^home/$ page30288249.html [NC]
+
+RewriteRule ^rhythmic-programs$ page2678493.html [NC]
+RewriteRule ^rhythmic-programs/$ page2678493.html [NC]
+
+RewriteRule ^calendar$ page8571760.html [NC]
+RewriteRule ^calendar/$ page8571760.html [NC]
+
+RewriteRule ^camps$ page2622879.html [NC]
+RewriteRule ^camps/$ page2622879.html [NC]
+
+RewriteRule ^about$ page2622784.html [NC]
+RewriteRule ^about/$ page2622784.html [NC]
+
+RewriteRule ^schedule-and-tuition$ page52231557.html [NC]
+RewriteRule ^schedule-and-tuition/$ page52231557.html [NC]
+
+RewriteRule ^policies$ page4092623.html [NC]
+RewriteRule ^policies/$ page4092623.html [NC]
+
+RewriteRule ^registration$ page2685654.html [NC]
+RewriteRule ^registration/$ page2685654.html [NC]
+
+RewriteRule ^home-old$ page2620600.html [NC]
+RewriteRule ^home-old/$ page2620600.html [NC]
+
+RewriteRule ^preteam$ page28736982.html [NC]
+RewriteRule ^preteam/$ page28736982.html [NC]
+
+RewriteRule ^xcel$ page3234581.html [NC]
+RewriteRule ^xcel/$ page3234581.html [NC]
+
+RewriteRule ^teams-schedule$ page2678549.html [NC]
+RewriteRule ^teams-schedule/$ page2678549.html [NC]
+
+RewriteRule ^header$ page2637355.html [NC]
+RewriteRule ^header/$ page2637355.html [NC]
+
+RewriteRule ^beginner-schedule$ page2700633.html [NC]
+RewriteRule ^beginner-schedule/$ page2700633.html [NC]
+
+RewriteRule ^footer$ page2685737.html [NC]
+RewriteRule ^footer/$ page2685737.html [NC]
+
+RewriteRule ^staff$ page2622838.html [NC]
+RewriteRule ^staff/$ page2622838.html [NC]
+
+RewriteRule ^scheduleredwoodcity$ page66402007.html [NC]
+RewriteRule ^scheduleredwoodcity/$ page66402007.html [NC]
+
+RewriteRule ^santa-clara-grand-opening$ page55706883.html [NC]
+RewriteRule ^santa-clara-grand-opening/$ page55706883.html [NC]
+
+RewriteRule ^schedulesantaclara$ page66228991.html [NC]
+RewriteRule ^schedulesantaclara/$ page66228991.html [NC]
+
+RewriteRule ^santa-clara-schedule-and-tuition$ page52177153.html [NC]
+RewriteRule ^santa-clara-schedule-and-tuition/$ page52177153.html [NC]
+
+RewriteRule ^redwood-city-schedule-and-tuition$ page52231269.html [NC]
+RewriteRule ^redwood-city-schedule-and-tuition/$ page52231269.html [NC]
+
+RewriteRule ^silicon-valley-cup$ page32661057.html [NC]
+RewriteRule ^silicon-valley-cup/$ page32661057.html [NC]
+
+RewriteRule ^faq$ page76648386.html [NC]
+RewriteRule ^faq/$ page76648386.html [NC]
+
+RewriteRule ^julyschedulerw$ page122093716.html [NC]
+RewriteRule ^julyschedulerw/$ page122093716.html [NC]
+
+RewriteRule ^sc_closure$ page122097196.html [NC]
+RewriteRule ^sc_closure/$ page122097196.html [NC]
+
+RewriteRule ^schedulesc$ page136324843.html [NC]
+RewriteRule ^schedulesc/$ page136324843.html [NC]
+
+RewriteRule ^schedulerwc$ page136324853.html [NC]
+RewriteRule ^schedulerwc/$ page136324853.html [NC]
+
+RewriteRule ^members/ ma_start.html [NC,L]
+
+
