@@ -1,16 +1,11 @@
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "/",
-  },
-};
+import Link from "next/link";
+import { useState } from "react";
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const articles = [
   {
@@ -62,38 +57,20 @@ const articles = [
     tags: ["Useful Info"],
     readTime: "4 min read",
     isPublished: false
-  },
-  {
-    id: "commute-calculator",
-    title: "Plan Your Visit: Commute Calculator",
-    excerpt: "Use our new interactive tool to estimate your driving time to Bravo Redwood City or Santa Clara during afternoon traffic.",
-    date: "August 15, 2026",
-    author: "Product Team",
-    tags: ["Tools", "Interactive"],
-    readTime: "Tool",
-    isTool: true,
-    isPublished: true
   }
 ];
 
+const availableTags = ["Guides", "Lifehacks", "Opinions", "Useful Info"];
+
 export default function Home() {
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  const filteredArticles = selectedTag 
+    ? articles.filter(article => article.tags.includes(selectedTag))
+    : articles;
+
   return (
     <div className="flex flex-col min-h-screen bg-zinc-50 font-sans text-bravo-dark">
-      {/* Header */}
-      <header className="w-full py-6 px-6 md:px-12 bg-bravo-dark sticky top-0 z-10 shadow-md">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3 focus:outline-none">
-            <Image src="/Bravo_1.svg" alt="Bravo Rhythmic Gymnastics Logo" width={32} height={32} className="h-8 w-auto brightness-0 invert" />
-            <span className="text-xl md:text-2xl font-bold tracking-tight text-white">
-              Bravo Rhythmic Gymnastics
-            </span>
-          </Link>
-          <nav className="hidden md:flex gap-6 text-[14px] font-normal text-white uppercase tracking-[1px]">
-            <Link href="/" className="hover:text-bravo-accent transition-colors">All Articles</Link>
-            <Link href="/commute-calculator" className="hover:text-bravo-accent transition-colors">Commute Calculator</Link>
-          </nav>
-        </div>
-      </header>
       
       {/* Hero Section */}
       <section className="w-full bg-bravo-light/30 py-16 px-6 md:px-12 border-b border-bravo-purple/10">
@@ -112,11 +89,21 @@ export default function Home() {
 
       {/* Articles Grid */}
       <main className="flex-1 w-full max-w-7xl mx-auto py-16 px-6 md:px-12">
-        <div className="flex justify-between items-end mb-8">
+        <div className="flex flex-col sm:flex-row justify-between sm:items-end mb-8 gap-4">
           <h3 className="text-2xl font-bold">Latest Articles</h3>
-          <div className="hidden sm:flex gap-2">
-            {["Guides", "Lifehacks", "Opinions", "Useful Info"].map(tag => (
-              <Badge key={tag} variant="secondary" className="bg-white border border-zinc-200 text-zinc-600 hover:bg-zinc-100 cursor-pointer">
+          <div className="flex flex-wrap gap-2">
+            {availableTags.map(tag => (
+              <Badge 
+                key={tag} 
+                variant="secondary" 
+                onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
+                className={cn(
+                  "cursor-pointer transition-colors border",
+                  selectedTag === tag 
+                    ? "bg-bravo-purple text-white border-bravo-purple hover:bg-bravo-purple/90" 
+                    : "bg-white border-zinc-200 text-zinc-600 hover:bg-zinc-100"
+                )}
+              >
                 {tag}
               </Badge>
             ))}
@@ -124,7 +111,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map((article) => (
+          {filteredArticles.map((article) => (
             <Card key={article.id} className="relative flex flex-col overflow-hidden border-zinc-200 hover:shadow-md transition-shadow group bg-white">
               <CardHeader className="pb-4">
                 <div className="flex gap-2 mb-3 flex-wrap">
@@ -136,7 +123,7 @@ export default function Home() {
                 </div>
                 <CardTitle className={cn("text-2xl leading-tight transition-colors", article.isPublished ? "group-hover:text-bravo-purple" : "text-zinc-400")}>
                   {article.isPublished ? (
-                    <Link href={article.isTool ? `/${article.id}` : `/articles/${article.id}`} className="focus:outline-none">
+                    <Link href={`/articles/${article.id}`} className="focus:outline-none">
                       <span className="absolute inset-0" aria-hidden="true" />
                       {article.title}
                     </Link>
@@ -144,10 +131,14 @@ export default function Home() {
                     <span>{article.title}</span>
                   )}
                 </CardTitle>
-                <div className="flex items-center gap-2 text-sm text-zinc-500 mt-2">
-                  <span>{article.date}</span>
-                  <span>·</span>
-                  <span>{article.readTime}</span>
+                <div className="flex items-center gap-2 text-sm text-zinc-500 mt-2 h-5">
+                  {article.isPublished && (
+                    <>
+                      <span>{article.date}</span>
+                      <span>·</span>
+                      <span>{article.readTime}</span>
+                    </>
+                  )}
                 </div>
               </CardHeader>
               <CardContent className="flex-1">
@@ -155,24 +146,29 @@ export default function Home() {
                   {article.excerpt}
                 </p>
               </CardContent>
-              <CardFooter className="pt-4 pb-6 border-t border-zinc-100 flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-bravo-purple/20 flex items-center justify-center text-bravo-purple font-bold text-xs">
-                    {article.author.charAt(0)}
-                  </div>
-                  <span className="text-sm font-medium">{article.author}</span>
-                </div>
+              <CardFooter className="pt-4 pb-6 border-t border-zinc-100 flex justify-between items-center min-h-[72px]">
                 {article.isPublished ? (
-                  <Link 
-                    href={article.isTool ? `/${article.id}` : `/articles/${article.id}`} 
-                    className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-bravo-purple hover:text-bravo-purple hover:bg-bravo-purple/10 font-semibold z-10 relative")}
-                  >
-                    {article.isTool ? "Try Tool →" : "Read →"}
-                  </Link>
+                  <>
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-bravo-purple/20 flex items-center justify-center text-bravo-purple font-bold text-xs">
+                        {article.author.charAt(0)}
+                      </div>
+                      <span className="text-sm font-medium">{article.author}</span>
+                    </div>
+                    <Link 
+                      href={`/articles/${article.id}`} 
+                      className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-bravo-purple hover:text-bravo-purple hover:bg-bravo-purple/10 font-semibold z-10 relative")}
+                    >
+                      Read →
+                    </Link>
+                  </>
                 ) : (
-                  <span className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-zinc-400 cursor-not-allowed opacity-50")}>
-                    Coming soon
-                  </span>
+                  <>
+                    <div />
+                    <span className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-zinc-400 cursor-not-allowed opacity-50")}>
+                      Coming soon
+                    </span>
+                  </>
                 )}
               </CardFooter>
             </Card>
@@ -192,7 +188,6 @@ export default function Home() {
           <div className="flex flex-wrap gap-4 text-sm font-medium text-zinc-600">
             <Link href="/" className="hover:text-bravo-purple transition-colors">Home</Link>
             <Link href="/articles/bravo-rhythmic-gymnastics-bay-area-guide" className="hover:text-bravo-purple transition-colors">Rhythmic Gymnastics Club Guide</Link>
-            <Link href="/commute-calculator" className="hover:text-bravo-purple transition-colors">Commute Calculator</Link>
           </div>
         </div>
       </footer>

@@ -12,20 +12,6 @@ export const metadata = {
 export default function ArticlePage() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans text-bravo-dark">
-      <header className="w-full py-6 px-6 md:px-12 bg-bravo-dark sticky top-0 z-10 shadow-md">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3 focus:outline-none">
-            <Image src="/Bravo_1.svg" alt="Bravo Rhythmic Gymnastics Logo" width={32} height={32} className="h-8 w-auto brightness-0 invert" />
-            <span className="text-xl md:text-2xl font-bold tracking-tight text-white">
-              Bravo Rhythmic Gymnastics
-            </span>
-          </Link>
-          <nav className="hidden md:flex gap-6 text-[14px] font-normal text-white uppercase tracking-[1px]">
-            <Link href="/" className="hover:text-bravo-accent transition-colors">All Articles</Link>
-            <Link href="/commute-calculator" className="hover:text-bravo-accent transition-colors">Commute Calculator</Link>
-          </nav>
-        </div>
-      </header>
       
       <main className="flex-1 w-full max-w-3xl mx-auto py-16 px-6">
         <div className="mb-8">
@@ -40,7 +26,7 @@ export default function ArticlePage() {
         </div>
 
         <article 
-          className="prose prose-zinc lg:prose-lg max-w-none prose-headings:text-bravo-dark prose-a:text-bravo-purple hover:prose-a:text-bravo-purple/80 prose-a:no-underline hover:prose-a:underline prose-table:w-full prose-table:border-collapse prose-th:border prose-th:border-zinc-300 prose-th:p-2 prose-td:border prose-td:border-zinc-300 prose-td:p-2"
+          className="prose prose-zinc lg:prose-lg max-w-none prose-headings:text-bravo-dark [&_a]:text-bravo-purple [&_a:hover]:text-bravo-purple/80 [&_a]:no-underline [&_a:hover]:underline prose-table:w-full prose-table:border-collapse prose-th:border prose-th:border-zinc-300 prose-th:p-2 prose-td:border prose-td:border-zinc-300 prose-td:p-2"
           dangerouslySetInnerHTML={{ __html: `<h1>How to Choose a Rhythmic Gymnastics Club in the Bay Area—and Plan Your Drive to Bravo</h1>
 <p>Finding the right rhythmic gymnastics class means finding a place where your child wants to learn—and a routine your family can maintain. Coaching, age-appropriate instruction, and the journey after school all matter.</p>
 <p>For families comparing <strong>rhythmic gymnastics in Redwood City</strong>, Bravo offers a place to start as a beginner and opportunities to progress into more advanced training. Our Redwood City gym is at <strong>2575 E Bayshore Rd, Redwood City, CA 94063</strong>. Our Santa Clara location is preparing to reopen; contact us for reopening updates before making plans around that location. <a href="https://bravorhythmic.com/">Explore Bravo</a>.</p>
