@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en-US"
       className={`${roboto.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <GoogleTagManager gtmId="GTM-5HX8JPHD" />
       <body className="min-h-full flex flex-col">
         <Header />
         {children}
