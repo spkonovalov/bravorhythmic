@@ -48,7 +48,7 @@ export function TrialForm() {
   }
 
   return (
-    <div className="w-full max-w-xl mx-auto bg-white rounded-xl shadow-lg border border-zinc-200 p-8" id="trial-form">
+    <div className="w-full max-w-xl mx-auto bg-white text-bravo-dark rounded-xl shadow-lg border border-zinc-200 p-8" id="trial-form">
       <h3 className="text-2xl font-bold mb-2 text-center">Sign up for a Trial Class</h3>
       <p className="text-zinc-600 mb-6 text-center text-sm">
         Leave your details and we will contact you to find the perfect time and class level for your gymnast.

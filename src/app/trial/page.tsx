@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { TrialForm } from "@/components/TrialForm";
-import { MapPin, Trophy, Calendar, Users, Star, Car } from "lucide-react";
+import { MapPin, Trophy, Calendar, Users, Star, Car, Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -19,9 +19,12 @@ export default function TrialPage() {
               Discover the Art of <span className="text-bravo-accent">Rhythmic Gymnastics</span>
             </h1>
             <p className="text-lg text-white/90 max-w-lg leading-relaxed">
-              Join one of Northern California's strongest rhythmic gymnastics teams. From fun recreational classes to elite competitive training, we help every gymnast reach their full potential.
+              Join Bravo, one of Northern California's strongest rhythmic gymnastics teams. From fun recreational classes to elite competitive training, we help every gymnast reach their full potential.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-bravo-accent/20 text-bravo-accent font-semibold text-sm border border-bravo-accent/30">
+              <Star size={16} fill="currentColor" /> 55 Minutes Free Trial Class
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <div className="flex items-center gap-2">
                 <MapPin className="text-bravo-accent" size={20} />
                 <span>Redwood City & Santa Clara</span>
@@ -171,6 +174,40 @@ export default function TrialPage() {
           <a href="#trial-form" className="inline-block bg-white text-bravo-purple font-bold rounded-full py-4 px-8 text-lg hover:bg-zinc-100 transition-colors shadow-lg">
             Sign up for a Trial Class Now
           </a>
+        </div>
+      </section>
+
+      {/* Gallery / Life at Bravo Carousel */}
+      <section className="py-20 bg-zinc-50 overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 mb-8 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-bravo-dark mb-4">Life at Bravo</h2>
+            <p className="text-zinc-600 text-lg">A glimpse into our daily training and vibrant competitions.</p>
+          </div>
+        </div>
+        
+        {/* CSS Scroll-Snap Carousel */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-12 pb-8 pt-4 w-full" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+          {/* Hide webkit scrollbar via a global style or inline style injection */}
+          <style dangerouslySetInnerHTML={{__html: `
+            .flex::-webkit-scrollbar { display: none; }
+          `}} />
+          
+          {[
+            "Competition-photo-11.jpg", 
+            "Competition-photo-13.jpg", 
+            "Competition-photo-14.JPG", 
+            "Competition-photo-4.jpg"
+          ].map((src, i) => (
+            <div key={i} className="flex-none w-[85vw] md:w-[60vw] lg:w-[45vw] max-w-[600px] snap-center aspect-[4/3] relative rounded-2xl overflow-hidden shadow-md">
+              <Image 
+                src={`/images/${src}`} 
+                alt={`Bravo Gymnastics Photo ${i+1}`}
+                fill 
+                className="object-cover hover:scale-105 transition-transform duration-700 ease-out" 
+              />
+            </div>
+          ))}
         </div>
       </section>
     </div>

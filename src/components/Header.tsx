@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const links = [
+  { label: "Home", href: "https://bravorhythmic.com" },
   { label: "Rhythmic Programs", href: "https://bravorhythmic.com/rhythmic-programs" },
   { label: "Schedule and Tuition", href: "https://bravorhythmic.com/schedule-and-tuition" },
   { label: "Club Policies", href: "https://bravorhythmic.com/policies" },
