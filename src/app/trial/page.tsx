@@ -4,8 +4,8 @@ import { MapPin, Trophy, Calendar, Users, Star, Car, Image as ImageIcon } from "
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Sign up for a Trial Class | Bravo Rhythmic Gymnastics",
-  description: "Start your child's rhythmic gymnastics journey with Bravo in the Bay Area. Programs for all levels, world-class coaches, and flexible schedules.",
+  title: { absolute: "Sign up for a Trial Class | Bravo Rhythmic Gymnastics" },
+  description: "Start your child's rhythmic gymnastics journey in Redwood City. Programs for kids ages 4-10 and team. Book your 55-min trial class today!",
 };
 
 export default function TrialPage() {
