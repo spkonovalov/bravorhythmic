@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Star } from "lucide-react";
 
 export function TrialForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -100,6 +100,9 @@ export function TrialForm() {
         <Button type="submit" disabled={isSubmitting} className="w-full bg-bravo-purple hover:bg-bravo-purple/90 text-white font-bold rounded-full py-6 mt-4 text-lg">
           {isSubmitting ? "Sending..." : "Request a Trial"}
         </Button>
+        <p className="text-center text-zinc-500 text-xs mt-3 flex items-center justify-center gap-1">
+          <Star size={12} className="text-bravo-purple" /> 55 Minutes Free Trial Class
+        </p>
       </form>
     </div>
   );

@@ -16,7 +16,7 @@ export default function TrialPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Discover the Art of <span className="text-bravo-accent">Rhythmic Gymnastics</span>
+              Rhythmic Gymnastics Classes in the <span className="text-bravo-accent">Bay Area</span>
             </h1>
             <p className="text-lg text-white/90 max-w-lg leading-relaxed">
               Join Bravo, one of Northern California's strongest rhythmic gymnastics teams. From fun recreational classes to elite competitive training, we help every gymnast reach their full potential.
@@ -50,14 +50,8 @@ export default function TrialPage() {
             <p className="text-zinc-600 max-w-2xl mx-auto">We provide a safe, positive, and professional environment where gymnasts grow both athletically and personally.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 text-center space-y-4">
-              <div className="w-12 h-12 bg-bravo-light rounded-full flex items-center justify-center mx-auto text-bravo-purple">
-                <Star size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-bravo-dark">Expert Coaches</h3>
-              <p className="text-zinc-600 text-sm leading-relaxed">Our experienced coaches have competed and coached at the absolute top levels in both the United States and Russia.</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
             
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 text-center space-y-4">
               <div className="w-12 h-12 bg-bravo-light rounded-full flex items-center justify-center mx-auto text-bravo-purple">
@@ -86,6 +80,50 @@ export default function TrialPage() {
         </div>
       </section>
 
+
+      {/* Expert Coaches */}
+      <section className="py-24 bg-white border-y border-zinc-100">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-bravo-dark mb-6">Expert Coaches</h2>
+            <p className="text-lg text-zinc-600 max-w-3xl mx-auto mb-8">
+              Our world-class coaching team brings decades of experience competing and coaching at the highest national and international levels.
+            </p>
+            <div className="bg-bravo-light/30 border border-bravo-accent/20 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto">
+              <h3 className="font-bold text-lg mb-2 text-bravo-dark">Certified Professionals</h3>
+              <p className="text-zinc-700 leading-relaxed">
+                Our coaching team is certified by <strong>USA Gymnastics</strong> in Instruction, Safety & Risk Management, and SafeSport, and is <strong>AHA-certified</strong> in Pediatric First Aid, CPR, AED, and Asthma Care. We pride ourselves on having award-winning professionals, including multiple-time <em>Region 1 Coach of the Year</em> recipients, ensuring your gymnast receives the safest and highest quality training.
+              </p>
+            </div>
+          </div>
+          
+          {/* Coach Carousel */}
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-8 px-4 pb-8 w-full" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+            {[
+              { name: "Olga Kofman", role: "Head Coach", src: "olga.jpg" },
+              { name: "Katya Konovalova", role: "Santa Clara Head Coach", src: "katya2.jpg" },
+              { name: "Anastasiya Kornyenko", role: "Coach", src: "anastasiya.jpg" },
+              { name: "Marina Kozlova", role: "Coach", src: "marina_kozlova.png" },
+              { name: "Aksana Laziuk", role: "Coach & Ballet", src: "aksana.jpg" },
+              { name: "Belén Pérez", role: "Coach", src: "belen.jpeg" },
+              { name: "Anastasiia Diakova", role: "Coach", src: "anastasiia_diakova.jpg" },
+              { name: "Anfisa Kupriyanova", role: "Operations", src: "anfisa.jpg" },
+              { name: "Kimi Iwasaki", role: "Junior Coach", src: "kimi.jpg" },
+              { name: "Alina Krayzbukh", role: "Junior Coach", src: "alina.jpg" },
+              { name: "Leah Terry", role: "Junior Coach", src: "leah.png" }
+            ].map((coach, i) => (
+              <div key={i} className="flex-none w-[260px] snap-center flex flex-col items-center text-center">
+                <div className="w-52 h-52 rounded-full overflow-hidden relative mb-5 shadow-lg border-4 border-white bg-zinc-100">
+                  <Image src={`/images/coaches/${coach.src}`} alt={coach.name} fill className="object-cover" />
+                </div>
+                <h4 className="font-bold text-xl text-bravo-dark mb-1">{coach.name}</h4>
+                <p className="text-bravo-purple font-semibold text-sm">{coach.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Achievements Placeholder */}
       <section className="py-20 bg-white">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
@@ -98,6 +136,33 @@ export default function TrialPage() {
               [Placeholder: specific achievements, medals, and high-level competition participation for the 2025-2026 season will be added here.]
             </p>
           </div>
+        </div>
+      </section>
+
+
+      {/* Real Reviews */}
+      <section className="py-24 bg-zinc-50 border-t border-zinc-100 overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-100 text-yellow-700 font-semibold text-sm mb-6 border border-yellow-200">
+            <Star size={16} fill="currentColor" /> 5-Star Rated
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-bravo-dark mb-4">What Our Families Say</h2>
+          <p className="text-zinc-600">See why parents and gymnasts love Bravo Rhythmic Gymnastics.</p>
+        </div>
+        
+        {/* Reviews Carousel */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-12 pb-8 w-full" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((num) => (
+            <div key={num} className="flex-none w-[85vw] sm:w-[320px] snap-center aspect-square relative rounded-2xl overflow-hidden shadow-md border border-zinc-200 bg-white">
+              <Image 
+                src={`/reviews/review${num}.png`} 
+                alt={`Bravo Gymnastics Review ${num}`}
+                fill 
+                className="object-contain p-2" 
+                sizes="(max-width: 640px) 85vw, 320px"
+              />
+            </div>
+          ))}
         </div>
       </section>
 
@@ -164,19 +229,6 @@ export default function TrialPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-20 bg-bravo-purple text-white text-center">
-        <div className="max-w-[800px] mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start?</h2>
-          <p className="text-lg text-white/90 mb-8">
-            Don't miss the opportunity to join our rhythmic gymnastics family. Spots for trial classes fill up quickly!
-          </p>
-          <a href="#trial-form" className="inline-block bg-white text-bravo-purple font-bold rounded-full py-4 px-8 text-lg hover:bg-zinc-100 transition-colors shadow-lg">
-            Sign up for a Trial Class Now
-          </a>
-        </div>
-      </section>
-
       {/* Gallery / Life at Bravo Carousel */}
       <section className="py-20 bg-zinc-50 overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 mb-8 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between">
@@ -197,7 +249,15 @@ export default function TrialPage() {
             "Competition-photo-11.jpg", 
             "Competition-photo-13.jpg", 
             "Competition-photo-14.JPG", 
-            "Competition-photo-4.jpg"
+            "Competition-photo-4.jpg",
+            "life-1.jpg",
+            "life-2.jpg",
+            "life-3.jpg",
+            "life-4.jpg",
+            "life-5.jpg",
+            "life-6.jpg",
+            "life-7.jpg",
+            "life-8.jpg"
           ].map((src, i) => (
             <div key={i} className="flex-none w-[85vw] md:w-[60vw] lg:w-[45vw] max-w-[600px] snap-center aspect-[4/3] relative rounded-2xl overflow-hidden shadow-md">
               <Image 
@@ -210,6 +270,19 @@ export default function TrialPage() {
           ))}
         </div>
       </section>
+      {/* Bottom CTA */}
+      <section className="py-20 bg-bravo-purple text-white text-center">
+        <div className="max-w-[800px] mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start?</h2>
+          <p className="text-lg text-white/90 mb-8">
+            Don't miss the opportunity to join our rhythmic gymnastics family. Spots for trial classes fill up quickly!
+          </p>
+          <a href="#trial-form" className="inline-block bg-white text-bravo-purple font-bold rounded-full py-4 px-8 text-lg hover:bg-zinc-100 transition-colors shadow-lg">
+            Sign up for a Trial Class Now
+          </a>
+        </div>
+      </section>
+
     </div>
   );
 }
