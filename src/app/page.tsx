@@ -6,6 +6,8 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ContactForm } from "@/components/ContactForm";
+import { CtaBlock } from "@/components/CtaBlock";
 
 const articles = [
   {
@@ -13,7 +15,7 @@ const articles = [
     title: "How to Choose a Rhythmic Gymnastics Club in the Bay Area",
     excerpt: "Finding the right rhythmic gymnastics class means finding a place where your child wants to learn—and a routine your family can maintain.",
     date: "September 14, 2026",
-    author: "Bravo Rhythmic Team",
+    author: "Bravo Team",
     tags: ["Guides", "Local"],
     readTime: "8 min read",
     isPublished: true
@@ -43,7 +45,7 @@ const articles = [
     title: "Stretching Safely at Home: Tips for Beginners",
     excerpt: "Learn the fundamental rules of safe stretching. What exercises you can do at home to improve flexibility, and what should be left for the gym.",
     date: "August 28, 2026",
-    author: "Bravo Rhythmic Team",
+    author: "Bravo Team",
     tags: ["Guides", "Useful Info"],
     readTime: "7 min read",
     isPublished: false
@@ -53,7 +55,7 @@ const articles = [
     title: "Understanding Rhythmic Gymnastics Apparatus",
     excerpt: "Ribbon, hoop, ball, clubs, and rope. A quick introduction to the five apparatuses used in rhythmic gymnastics and when athletes start using them.",
     date: "August 20, 2026",
-    author: "Bravo Rhythmic Team",
+    author: "Bravo Team",
     tags: ["Useful Info"],
     readTime: "4 min read",
     isPublished: false
@@ -175,22 +177,14 @@ export default function Home() {
           ))}
         </div>
       </main>
-      
-      {/* Footer */}
-      <footer className="w-full py-12 px-6 border-t border-zinc-200 bg-white mt-auto">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          <div>
-            <div className="text-bravo-dark font-bold text-lg mb-4">Bravo Rhythmic</div>
-            <div className="text-sm text-zinc-500">
-              © {new Date().getFullYear()} Bravo Rhythmic. All rights reserved.
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-4 text-sm font-medium text-zinc-600">
-            <Link href="/" className="hover:text-bravo-purple transition-colors">Home</Link>
-            <Link href="/articles/bravo-rhythmic-gymnastics-bay-area-guide" className="hover:text-bravo-purple transition-colors">Rhythmic Gymnastics Club Guide</Link>
-          </div>
+
+      <div className="w-full max-w-4xl mx-auto px-6 md:px-12 pb-24">
+        <CtaBlock />
+        <div className="mt-8">
+          <ContactForm />
         </div>
-      </footer>
+      </div>
+      
     </div>
   );
 }

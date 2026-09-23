@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ContactForm } from "@/components/ContactForm";
+import { CtaBlock } from "@/components/CtaBlock";
 
 export const metadata = {
   title: { absolute: "How to Choose a Rhythmic Gymnastics Club in the Bay Area" },
@@ -368,21 +370,13 @@ export default function ArticlePage() {
         </div>
       </main>
       
-      <footer className="w-full py-12 px-6 border-t border-zinc-200 bg-white mt-12">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          <div>
-            <div className="text-bravo-dark font-bold text-lg mb-4">Bravo Rhythmic</div>
-            <div className="text-sm text-zinc-500">
-              © {new Date().getFullYear()} Bravo Rhythmic. All rights reserved.
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-4 text-sm font-medium text-zinc-600">
-            <Link href="/" className="hover:text-bravo-purple transition-colors">Home</Link>
-            <Link href="/articles/bravo-rhythmic-gymnastics-bay-area-guide" className="hover:text-bravo-purple transition-colors">Rhythmic Gymnastics Club Guide</Link>
-            <Link href="/commute-calculator" className="hover:text-bravo-purple transition-colors">Commute Calculator</Link>
-          </div>
+      <div className="w-full max-w-4xl mx-auto px-6 md:px-12 pb-24">
+        <CtaBlock />
+        <div className="mt-8">
+          <ContactForm />
         </div>
-      </footer>
+      </div>
+      
     </div>
   );
 }
