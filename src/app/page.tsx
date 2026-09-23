@@ -80,9 +80,9 @@ export default function Home() {
           <Badge variant="outline" className="border-bravo-purple text-bravo-purple bg-white px-3 py-1 text-sm rounded-full">
             Knowledge Base
           </Badge>
-          <h2 className="text-4xl md:text-6xl font-bold leading-tight max-w-3xl">
-            Everything you need to know about Rhythmic Gymnastics.
-          </h2>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight max-w-3xl">
+            Rhythmic Gymnastics Guide for Parents and Beginners
+          </h1>
           <p className="text-lg md:text-xl leading-relaxed text-bravo-dark/70 max-w-2xl">
             Discover guides, lifehacks, professional opinions, and useful tools for gymnastics parents and athletes.
           </p>

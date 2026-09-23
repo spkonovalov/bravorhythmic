@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://learn.bravorhythmic.com"),
   title: {
     template: "%s | Bravo Rhythmic",
-    default: "Bravo Rhythmic - Blog & Learn",
+    default: "Rhythmic Gymnastics Blog & Parents Guide | Bravo",
   },
-  description: "Educational materials, articles, and guides for Bravo Rhythmic gymnastics club.",
+  description: "Explore our rhythmic gymnastics blog for parents and beginners. Discover guides on leotards, equipment, and kids gymnastics classes. Read more!",
 };
 
 import { Header } from "@/components/Header";
