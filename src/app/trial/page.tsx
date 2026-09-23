@@ -1,0 +1,178 @@
+import { Metadata } from "next";
+import { TrialForm } from "@/components/TrialForm";
+import { MapPin, Trophy, Calendar, Users, Star, Car } from "lucide-react";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Sign up for a Trial Class | Bravo Rhythmic Gymnastics",
+  description: "Start your child's rhythmic gymnastics journey with Bravo in the Bay Area. Programs for all levels, world-class coaches, and flexible schedules.",
+};
+
+export default function TrialPage() {
+  return (
+    <div className="flex flex-col min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative w-full bg-bravo-dark text-white pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              Discover the Art of <span className="text-bravo-accent">Rhythmic Gymnastics</span>
+            </h1>
+            <p className="text-lg text-white/90 max-w-lg leading-relaxed">
+              Join one of Northern California's strongest rhythmic gymnastics teams. From fun recreational classes to elite competitive training, we help every gymnast reach their full potential.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex items-center gap-2">
+                <MapPin className="text-bravo-accent" size={20} />
+                <span>Redwood City & Santa Clara</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users className="text-bravo-accent" size={20} />
+                <span>Ages 4 and up</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="w-full lg:max-w-md mx-auto lg:ml-auto">
+            <TrialForm />
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Bravo */}
+      <section className="py-20 bg-zinc-50">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-bravo-dark mb-4">Why Choose Bravo?</h2>
+            <p className="text-zinc-600 max-w-2xl mx-auto">We provide a safe, positive, and professional environment where gymnasts grow both athletically and personally.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 text-center space-y-4">
+              <div className="w-12 h-12 bg-bravo-light rounded-full flex items-center justify-center mx-auto text-bravo-purple">
+                <Star size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-bravo-dark">Expert Coaches</h3>
+              <p className="text-zinc-600 text-sm leading-relaxed">Our experienced coaches have competed and coached at the absolute top levels in both the United States and Russia.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 text-center space-y-4">
+              <div className="w-12 h-12 bg-bravo-light rounded-full flex items-center justify-center mx-auto text-bravo-purple">
+                <Trophy size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-bravo-dark">All Levels Welcome</h3>
+              <p className="text-zinc-600 text-sm leading-relaxed">We offer diverse programs from beginner recreational classes to intensive competitive level training.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 text-center space-y-4">
+              <div className="w-12 h-12 bg-bravo-light rounded-full flex items-center justify-center mx-auto text-bravo-purple">
+                <Calendar size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-bravo-dark">Flexible Schedule</h3>
+              <p className="text-zinc-600 text-sm leading-relaxed">We provide a highly flexible class schedule tailored to fit the busy routines of Bay Area families.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 text-center space-y-4">
+              <div className="w-12 h-12 bg-bravo-light rounded-full flex items-center justify-center mx-auto text-bravo-purple">
+                <Users size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-bravo-dark">Seasonal Camps</h3>
+              <p className="text-zinc-600 text-sm leading-relaxed">Keep your gymnast active and improving year-round with our fun and engaging seasonal camps.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Placeholder */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-bravo-light text-bravo-purple font-semibold text-sm mb-6">
+            <Trophy size={16} /> Elite Competition
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-bravo-dark mb-8">Bravo Achievements: 2025-2026 Season</h2>
+          <div className="w-full max-w-4xl mx-auto bg-zinc-50 border-2 border-dashed border-zinc-200 rounded-2xl p-12">
+            <p className="text-zinc-500 text-lg">
+              [Placeholder: specific achievements, medals, and high-level competition participation for the 2025-2026 season will be added here.]
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Commute and Locations */}
+      <section className="py-20 bg-zinc-900 text-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Conveniently Located in the Bay Area</h2>
+                <p className="text-zinc-400 text-lg leading-relaxed">
+                  Easily accessible from major highways, getting to practice has never been easier. We are proud to serve families across the Peninsula and South Bay.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="bg-white/5 p-6 rounded-xl border border-white/10">
+                  <h3 className="text-xl font-bold text-bravo-accent mb-2">Redwood City</h3>
+                  <p className="text-zinc-300 text-sm mb-4">Main Facility</p>
+                  <p className="text-zinc-400 text-sm">2575 E Bayshore Rd,<br/>Redwood City, CA 94063</p>
+                </div>
+                <div className="bg-white/5 p-6 rounded-xl border border-white/10 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 bg-bravo-purple text-xs font-bold px-3 py-1 rounded-bl-lg">NEW</div>
+                  <h3 className="text-xl font-bold text-bravo-accent mb-2">Santa Clara</h3>
+                  <p className="text-zinc-300 text-sm mb-4">Opening Soon!</p>
+                  <p className="text-zinc-400 text-sm">Join us for the grand opening and secure your spot in our newest facility.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 text-bravo-dark shadow-xl">
+              <div className="flex items-center gap-3 mb-6">
+                <Car className="text-bravo-purple" size={28} />
+                <h3 className="text-2xl font-bold">Directions & Commute</h3>
+              </div>
+              <p className="text-zinc-600 mb-6">Get quick Google Maps directions to our Redwood City location from your city:</p>
+              
+              <div className="flex flex-col gap-3">
+                <a href="https://www.google.com/maps/dir/San+Mateo,+CA/2575+E+Bayshore+Rd,+Redwood+City,+CA+94063" target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 rounded-lg bg-zinc-50 hover:bg-bravo-light/50 transition-colors border border-zinc-100 group">
+                  <span className="font-medium">From San Mateo</span>
+                  <span className="text-sm text-bravo-purple font-semibold group-hover:underline">Get Directions →</span>
+                </a>
+                <a href="https://www.google.com/maps/dir/Palo+Alto,+CA/2575+E+Bayshore+Rd,+Redwood+City,+CA+94063" target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 rounded-lg bg-zinc-50 hover:bg-bravo-light/50 transition-colors border border-zinc-100 group">
+                  <span className="font-medium">From Palo Alto</span>
+                  <span className="text-sm text-bravo-purple font-semibold group-hover:underline">Get Directions →</span>
+                </a>
+                <a href="https://www.google.com/maps/dir/Cupertino,+CA/2575+E+Bayshore+Rd,+Redwood+City,+CA+94063" target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 rounded-lg bg-zinc-50 hover:bg-bravo-light/50 transition-colors border border-zinc-100 group">
+                  <span className="font-medium">From Cupertino</span>
+                  <span className="text-sm text-bravo-purple font-semibold group-hover:underline">Get Directions →</span>
+                </a>
+                <a href="https://www.google.com/maps/dir/Santa+Clara,+CA/2575+E+Bayshore+Rd,+Redwood+City,+CA+94063" target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 rounded-lg bg-zinc-50 hover:bg-bravo-light/50 transition-colors border border-zinc-100 group">
+                  <span className="font-medium">From Santa Clara</span>
+                  <span className="text-sm text-bravo-purple font-semibold group-hover:underline">Get Directions →</span>
+                </a>
+                <a href="https://www.google.com/maps/dir/San+Jose,+CA/2575+E+Bayshore+Rd,+Redwood+City,+CA+94063" target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 rounded-lg bg-zinc-50 hover:bg-bravo-light/50 transition-colors border border-zinc-100 group">
+                  <span className="font-medium">From San Jose</span>
+                  <span className="text-sm text-bravo-purple font-semibold group-hover:underline">Get Directions →</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="py-20 bg-bravo-purple text-white text-center">
+        <div className="max-w-[800px] mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start?</h2>
+          <p className="text-lg text-white/90 mb-8">
+            Don't miss the opportunity to join our rhythmic gymnastics family. Spots for trial classes fill up quickly!
+          </p>
+          <a href="#trial-form" className="inline-block bg-white text-bravo-purple font-bold rounded-full py-4 px-8 text-lg hover:bg-zinc-100 transition-colors shadow-lg">
+            Sign up for a Trial Class Now
+          </a>
+        </div>
+      </section>
+    </div>
+  );
+}
