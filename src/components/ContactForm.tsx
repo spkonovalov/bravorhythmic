@@ -15,7 +15,6 @@ export function ContactForm() {
       <form 
         name="ask-question" 
         method="POST" 
-        data-netlify="true" 
         action="/?success=true"
         className="space-y-4"
       >
