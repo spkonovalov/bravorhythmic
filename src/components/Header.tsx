@@ -22,62 +22,21 @@ export function Header() {
 
   return (
     <header className="w-full bg-bravo-dark sticky top-0 z-50 shadow-md">
-      <div className="max-w-[1400px] mx-auto w-full flex flex-col items-center">
+      <div className="max-w-[1400px] mx-auto w-full h-16 px-6 flex justify-between items-center">
         
-        {/* Top Row: Socials, Logo, Hamburger */}
-        <div className="w-full relative flex justify-center items-center py-6 md:py-8 px-6">
-          
-          {/* Socials - Left */}
-          <div className="absolute left-6 md:left-12 flex gap-3">
-            <a 
-              href="https://fb.com/bravorhythmic" 
-              target="_blank" 
-              rel="nofollow noreferrer" 
-              className="w-8 h-8 rounded-full bg-white text-bravo-dark flex items-center justify-center hover:opacity-80 transition-opacity"
-              aria-label="Facebook"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
-            </a>
-            <a 
-              href="https://instagram.com/bravorhythmic" 
-              target="_blank" 
-              rel="nofollow noreferrer" 
-              className="w-8 h-8 rounded-full bg-white text-bravo-dark flex items-center justify-center hover:opacity-80 transition-opacity"
-              aria-label="Instagram"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-          </div>
+        {/* Left: Logo */}
+        <Link href="/" className="focus:outline-none flex-shrink-0 z-50 flex items-center">
+          <Image 
+            src="/Bravo_1.svg" 
+            alt="Bravo Rhythmic Gymnastics Logo" 
+            width={140} 
+            height={45} 
+            className="w-[120px] md:w-[140px] h-auto brightness-0 invert" 
+          />
+        </Link>
 
-          {/* Center Logo */}
-          <Link href="/" className="focus:outline-none flex-shrink-0 z-50">
-            <Image 
-              src="/Bravo_1.svg" 
-              alt="Bravo Rhythmic Gymnastics Logo" 
-              width={220} 
-              height={70} 
-              className="w-32 md:w-[220px] h-auto brightness-0 invert" 
-            />
-          </Link>
-
-          {/* Mobile Toggle - Right */}
-          <button 
-            className="lg:hidden absolute right-6 text-white focus:outline-none z-50"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-
-        {/* Bottom Row: Navigation (Desktop) */}
-        <nav className="hidden lg:flex flex-wrap justify-center gap-x-8 gap-y-3 pb-8 text-[12px] font-semibold text-white/90 uppercase tracking-[1px] w-full px-6">
+        {/* Right: Desktop Navigation */}
+        <nav className="hidden xl:flex items-center gap-x-6 text-[12px] font-semibold text-white/90 uppercase tracking-[1px]">
           {links.map((link) => {
             const isActive = link.label === "Learn";
             return (
@@ -92,12 +51,20 @@ export function Header() {
           })}
         </nav>
 
+        {/* Mobile Toggle */}
+        <button 
+          className="xl:hidden text-white focus:outline-none z-50"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
+        >
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
+        </button>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile / Tablet Nav Dropdown */}
       {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-bravo-dark border-t border-white/10 shadow-lg">
-          <nav className="flex flex-col py-4 px-6 gap-4 text-[14px] font-semibold text-white uppercase tracking-[1px]">
+        <div className="xl:hidden absolute top-full left-0 w-full bg-bravo-dark border-t border-white/10 shadow-lg">
+          <nav className="flex flex-col py-4 px-6 gap-4 text-[13px] font-semibold text-white uppercase tracking-[1px]">
             {links.map((link) => {
               const isActive = link.label === "Learn";
               return (
