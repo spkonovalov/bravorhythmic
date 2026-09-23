@@ -29,9 +29,9 @@ export function Header() {
           <Image 
             src="/Bravo_1.svg" 
             alt="Bravo Rhythmic Gymnastics Logo" 
-            width={140} 
-            height={45} 
-            className="w-[120px] md:w-[140px] h-auto brightness-0 invert" 
+            width={85} 
+            height={28} 
+            className="w-[70px] md:w-[85px] h-auto brightness-0 invert" 
           />
         </Link>
 
