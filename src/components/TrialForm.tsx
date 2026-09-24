@@ -25,6 +25,14 @@ export function TrialForm() {
         // @ts-ignore
         body: new URLSearchParams(formData).toString(),
       });
+      
+      // Google Ads Conversion Tracking
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-18464232336/3J0FCKbOhYQdEJCnt-RE'
+        });
+      }
+      
       setIsSubmitted(true);
     } catch (error) {
       console.error("Form submission error", error);
