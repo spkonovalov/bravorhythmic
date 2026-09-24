@@ -91,7 +91,7 @@ export default function CommuteCalculator() {
     <div className="flex flex-col min-h-screen bg-zinc-50 text-bravo-dark font-sans">
 
       <main className="flex-1 w-full max-w-5xl mx-auto py-12 px-6">
-        <h1 className="text-4xl font-bold mb-4">Compare Your Drive to Bravo</h1>
+        <h1 className="text-4xl font-bold mb-4">Gymnastics Commute Calculator for the Bay Area</h1>
         <p className="text-lg text-bravo-dark/70 mb-8 max-w-2xl">
           Enter your ZIP code to estimate the drive to Bravo Redwood City and our Santa Clara location. Compare your trip to class with the evening drive back.
         </p>

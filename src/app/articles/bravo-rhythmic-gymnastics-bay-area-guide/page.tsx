@@ -3,13 +3,13 @@ import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
 import { CtaBlock } from "@/components/CtaBlock";
 
-export const metadata = {
-  title: { absolute: "How to Choose a Rhythmic Gymnastics Club in the Bay Area" },
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata = constructMetadata({
+  title: "How to Choose a Rhythmic Gymnastics Club in the Bay Area",
   description: "Finding the right rhythmic gymnastics class means finding a place where your child wants to learn—and a routine your family can maintain.",
-  alternates: {
-    canonical: "/articles/bravo-rhythmic-gymnastics-bay-area-guide",
-  },
-};
+  path: "/articles/bravo-rhythmic-gymnastics-bay-area-guide"
+});
 
 export default function ArticlePage() {
   return (

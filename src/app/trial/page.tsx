@@ -3,10 +3,13 @@ import { TrialForm } from "@/components/TrialForm";
 import { MapPin, Trophy, Calendar, Users, Star, Car, Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: { absolute: "Sign up for a Trial Class | Bravo Rhythmic Gymnastics" },
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata({
+  title: "Sign Up for a Free Gymnastics Trial Class | Bravo",
   description: "Start your child's rhythmic gymnastics journey in Redwood City. Programs for kids ages 4-10 and team. Book your 55-min trial class today!",
-};
+  path: "/trial"
+});
 
 export default function TrialPage() {
   return (
@@ -16,7 +19,7 @@ export default function TrialPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Rhythmic Gymnastics Classes in the <span className="text-bravo-accent">Bay Area</span>
+              Rhythmic Gymnastics Classes in <span className="text-bravo-accent">Redwood City</span> & the Bay Area
             </h1>
             <p className="text-lg text-white/90 max-w-lg leading-relaxed">
               Join Bravo, one of Northern California's strongest rhythmic gymnastics teams. From fun recreational classes to elite competitive training, we help every gymnast reach their full potential.

@@ -13,14 +13,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://learn.bravorhythmic.com"),
-  title: {
-    template: "%s | Bravo Rhythmic",
-    default: "Rhythmic Gymnastics Blog & Parents Guide | Bravo",
-  },
-  description: "Explore our rhythmic gymnastics blog for parents and beginners. Discover guides on leotards, equipment, and kids gymnastics classes. Read more!",
-};
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata();
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
