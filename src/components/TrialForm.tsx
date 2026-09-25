@@ -7,26 +7,31 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2, Star } from "lucide-react";
 
+import { submitTrialAction } from "@/app/actions/submitTrial";
+
 export function TrialForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
     
     const form = e.currentTarget;
     const formData = new FormData(form);
 
     try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        // @ts-ignore
-        body: new URLSearchParams(formData).toString(),
-      });
+      // 1. Send emails via Resend
+      const result = await submitTrialAction(formData);
       
-      // Google Ads Conversion Tracking
+      if (!result.success) {
+        setError(result.error || "Failed to submit form");
+        return;
+      }
+      
+      // 2. Google Ads Conversion Tracking
       if (typeof window !== "undefined" && (window as any).gtag) {
         (window as any).gtag('event', 'conversion', {
           'send_to': 'AW-18464232336/3J0FCKbOhYQdEJCnt-RE'
@@ -104,6 +109,12 @@ export function TrialForm() {
             disabled={isSubmitting}
           />
         </div>
+
+        {error && (
+          <div className="p-3 bg-red-50 text-red-600 rounded-lg text-sm border border-red-200">
+            {error}
+          </div>
+        )}
 
         <Button type="submit" disabled={isSubmitting} className="w-full bg-bravo-purple hover:bg-bravo-purple/90 text-white font-bold rounded-full py-6 mt-4 text-lg">
           {isSubmitting ? "Sending..." : "Request a Trial"}
