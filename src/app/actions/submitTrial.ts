@@ -27,7 +27,7 @@ export async function submitTrialAction(formData: FormData) {
     // 1. Send Notification Email to You (Admin)
     await resend.emails.send({
       from: `Bravo Website <${FROM_EMAIL}>`,
-      to: ADMIN_EMAIL,
+      to: [ADMIN_EMAIL, "sk@67path.com"],
       subject: `New Trial Request: ${parentName}`,
       html: `
         <h2>New Trial Class Request</h2>
