@@ -18,10 +18,10 @@ export async function submitTrialAction(formData: FormData) {
 
   // The email address that emails will be sent FROM.
   // IMPORTANT: This domain must be verified in your Resend dashboard!
-  const FROM_EMAIL = "hello@bravorhythmic.com"; 
+  const FROM_EMAIL = "info@bravorhythmic.com"; 
   
   // The email address where YOU want to receive notifications.
-  const ADMIN_EMAIL = "hello@bravorhythmic.com"; 
+  const ADMIN_EMAIL = "info@bravorhythmic.com"; 
 
   try {
     // 1. Send Notification Email to You (Admin)
@@ -43,19 +43,20 @@ export async function submitTrialAction(formData: FormData) {
     await resend.emails.send({
       from: `Bravo Rhythmic Gymnastics <${FROM_EMAIL}>`,
       to: email,
-      subject: "Your Free Trial Request at Bravo Rhythmic Gymnastics",
+      subject: "Book your Free Trial Class at Bravo Rhythmic",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; line-height: 1.6;">
-          <h2 style="color: #6C5CE7;">Welcome to Bravo Rhythmic Gymnastics!</h2>
-          <p>Hi ${parentName},</p>
-          <p>Thank you for your interest! We've received your request for a free trial class for your ${gymnastAge}-year-old gymnast.</p>
-          <p>Our team will contact you shortly at <strong>${phone}</strong> to confirm the best time and location for your trial class.</p>
-          <p>In the meantime, feel free to reply directly to this email if you have any questions before we connect.</p>
+          <p>Hello, ${parentName}!</p>
+          <p>Thank you for your interest in Bravo Rhythmic. We have received your request for a trial class.</p>
+          <p>Please follow this link <a href="https://portal.iclasspro.com/bravo" style="color: #6C5CE7; font-weight: bold;">https://portal.iclasspro.com/bravo</a> to book a specific date and time for your trial class.</p>
+          <p>If you have any questions, feel free to contact us:</p>
+          <p>
+            <a href="mailto:info@bravorhythmic.com" style="color: #6C5CE7;">info@bravorhythmic.com</a><br/>
+            (408) 384-9595
+          </p>
           <br />
           <p>Best regards,</p>
-          <p><strong>The Bravo Team</strong><br/>
-          Redwood City & Santa Clara<br/>
-          <a href="https://learn.bravorhythmic.com" style="color: #6C5CE7;">learn.bravorhythmic.com</a></p>
+          <p><strong>Bravo Team</strong></p>
         </div>
       `,
     });
