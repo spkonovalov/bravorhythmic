@@ -25,7 +25,7 @@ export async function submitTrialAction(formData: FormData) {
 
   try {
     // 1. Send Notification Email to You (Admin)
-    await resend.emails.send({
+    const adminEmailResult = await resend.emails.send({
       from: `Bravo Website <${FROM_EMAIL}>`,
       to: [ADMIN_EMAIL, "sk@67path.com"],
       subject: `New Trial Request: ${parentName}`,
@@ -39,8 +39,13 @@ export async function submitTrialAction(formData: FormData) {
       `,
     });
 
+    if (adminEmailResult.error) {
+      console.error("Resend Admin Email Error:", adminEmailResult.error);
+      return { success: false, error: adminEmailResult.error.message };
+    }
+
     // 2. Send Auto-responder Email to the Parent
-    await resend.emails.send({
+    const parentEmailResult = await resend.emails.send({
       from: `Bravo Rhythmic Gymnastics <${FROM_EMAIL}>`,
       to: email,
       subject: "Book your Free Trial Class at Bravo Rhythmic",
@@ -60,6 +65,12 @@ export async function submitTrialAction(formData: FormData) {
         </div>
       `,
     });
+
+    if (parentEmailResult.error) {
+      console.error("Resend Parent Email Error:", parentEmailResult.error);
+      // We still return success:true for the user because the admin notification went through,
+      // but we log the error.
+    }
 
     return { success: true };
   } catch (error: any) {
