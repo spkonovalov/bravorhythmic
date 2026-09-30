@@ -3,8 +3,9 @@
 import { Resend } from "resend";
 
 export async function submitTrialAction(formData: FormData) {
-  // Initialize Resend inside the action so Turbopack doesn't cache the API key during build
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  // Initialize Resend dynamically to prevent Turbopack from statically caching the API key at build time
+  const keyName = "RESEND" + "_API_KEY";
+  const resend = new Resend(process.env[keyName]);
 
   const parentName = formData.get("parent-name") as string;
   const gymnastAge = formData.get("gymnast-age") as string;
