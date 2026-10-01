@@ -16,7 +16,7 @@ const articles = [
     excerpt: "Get to know the experts teaching your child. We share our practical approach to building confidence, teaching routines, and preparing gymnasts for competition.",
     date: "September 30, 2026",
     author: "Katya Konovalova",
-    tags: ["Guides", "Local"],
+    tags: ["Guides", "Opinions"],
     readTime: "8 min read",
     isPublished: true
   },
