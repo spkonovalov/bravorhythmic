@@ -11,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${baseUrl}/articles/how-to-choose-rhythmic-gymnastics-club`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/articles/bravo-rhythmic-gymnastics-bay-area-guide`,
       lastModified: new Date(),
       changeFrequency: 'monthly',

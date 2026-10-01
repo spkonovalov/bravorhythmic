@@ -11,8 +11,18 @@ import { CtaBlock } from "@/components/CtaBlock";
 
 const articles = [
   {
+    id: "how-to-choose-rhythmic-gymnastics-club",
+    title: "Meet Bravo’s Coaches: Our Approach to Rhythmic Gymnastics",
+    excerpt: "Choosing a rhythmic gymnastics club means choosing the people who will teach your child, the way they will learn, and the place this activity will have in your family’s week.",
+    date: "September 30, 2026",
+    author: "Katya Konovalova",
+    tags: ["Guides", "Local"],
+    readTime: "8 min read",
+    isPublished: true
+  },
+  {
     id: "bravo-rhythmic-gymnastics-bay-area-guide",
-    title: "How to Choose a Rhythmic Gymnastics Club in the Bay Area",
+    title: "A Parent's Guide to Starting Rhythmic Gymnastics in the Bay Area",
     excerpt: "Finding the right rhythmic gymnastics class means finding a place where your child wants to learn—and a routine your family can maintain.",
     date: "September 14, 2026",
     author: "Bravo Team",

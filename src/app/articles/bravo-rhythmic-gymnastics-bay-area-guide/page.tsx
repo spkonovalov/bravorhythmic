@@ -6,7 +6,7 @@ import { CtaBlock } from "@/components/CtaBlock";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "How to Choose a Rhythmic Gymnastics Club in the Bay Area",
+  title: "Parent's Guide: Rhythmic Gymnastics in the Bay Area",
   description: "Finding the right rhythmic gymnastics class means finding a place where your child wants to learn—and a routine your family can maintain.",
   path: "/articles/bravo-rhythmic-gymnastics-bay-area-guide"
 });
@@ -359,15 +359,6 @@ export default function ArticlePage() {
 <p>Come meet the coach, try rhythmic gymnastics, and see how the whole visit fits your family. The right club should make sense for your child and for the week you actually live.</p>
 ` }} 
         />
-        
-        <div className="mt-16 pt-8 border-t border-zinc-200">
-          <h4 className="font-bold text-lg mb-4">Share this guide</h4>
-          <div className="flex gap-4">
-            <Link href="/commute-calculator" className="px-4 py-2 bg-bravo-purple text-white hover:bg-bravo-purple/90 rounded-full text-sm font-medium transition-colors">
-              Try the Commute Calculator
-            </Link>
-          </div>
-        </div>
       </main>
       
       <div className="w-full max-w-4xl mx-auto px-6 md:px-12 pb-24">
