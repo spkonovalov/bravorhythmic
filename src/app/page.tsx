@@ -13,7 +13,7 @@ const articles = [
   {
     id: "how-to-choose-rhythmic-gymnastics-club",
     title: "Meet Bravo’s Coaches: Our Approach to Rhythmic Gymnastics",
-    excerpt: "Choosing a rhythmic gymnastics club means choosing the people who will teach your child, the way they will learn, and the place this activity will have in your family’s week.",
+    excerpt: "Get to know the experts teaching your child. We share our practical approach to building confidence, teaching routines, and preparing gymnasts for competition.",
     date: "September 30, 2026",
     author: "Katya Konovalova",
     tags: ["Guides", "Local"],
@@ -23,7 +23,7 @@ const articles = [
   {
     id: "bravo-rhythmic-gymnastics-bay-area-guide",
     title: "A Parent's Guide to Starting Rhythmic Gymnastics in the Bay Area",
-    excerpt: "Finding the right rhythmic gymnastics class means finding a place where your child wants to learn—and a routine your family can maintain.",
+    excerpt: "From managing commute times to understanding the real commitment, here are the practical questions every parent should ask before enrolling in a club.",
     date: "September 14, 2026",
     author: "Bravo Team",
     tags: ["Guides", "Local"],
